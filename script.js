@@ -159,5 +159,4 @@ function erase() {
 document.addEventListener("DOMContentLoaded", function() {
   if (textArray.length) setTimeout(type, newTextDelay + 250);
 }, false,
-)
-  // Snow(canvas, 500, { color: 'white' }) )
+   Snow(canvas, 500, { color: 'white' }) )

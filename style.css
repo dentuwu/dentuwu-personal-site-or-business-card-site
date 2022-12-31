@@ -1,0 +1,356 @@
+html body {
+  --body-bg: #000;
+  background: black;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: #1C1C1E;
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+}
+
+.spinner:before {
+  transform: rotateX(60deg) rotateY(45deg) rotateZ(45deg);
+  animation: 750ms rotateBefore infinite linear reverse;
+
+}
+
+.spinner:after {
+
+  transform: rotateX(240deg) rotateY(45deg) rotateZ(45deg);
+  animation: 750ms rotateAfter infinite linear;
+}
+
+.spinner:before,
+.spinner:after {
+  z-index: 1001;
+  box-sizing: border-box;
+  content: '';
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -5em;
+  margin-left: -5em;
+  width: 10em;
+  height: 10em;
+  transform-style: preserve-3d;
+  transform-origin: 50%;
+  transform: rotateY(50%);
+  perspective-origin: 50% 50%;
+  perspective: 340px;
+  background-size: 10em 10em;
+  background-image: url('./assets/preloader/preloader.svg');
+}
+
+@keyframes rotateBefore {
+  from {
+    transform: rotateX(60deg) rotateY(45deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(60deg) rotateY(45deg) rotateZ(-360deg);
+  }
+}
+
+@keyframes rotateAfter {
+  from {
+    transform: rotateX(240deg) rotateY(45deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(240deg) rotateY(45deg) rotateZ(360deg);
+  }
+}
+
+.loaded_hiding .preloader {
+  transition: 0.5s opacity;
+  opacity: 0;
+}
+
+.loaded .preloader {
+  display: none;
+}
+
+.telegram_background {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  background: var(--body-bg);
+}
+
+.source_in_telegram_background {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-mask: center repeat;
+  -webkit-mask-size: 420px auto;
+  -webkit-mask-image: url("./assets/backgrounds-telegram/bg.svg");
+  mask: center repeat;
+  mask-size: 420px auto;
+  mask-image: url("./assets/backgrounds-telegram/bg.svg");
+  opacity: 0.6;
+}
+
+#snow {
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  z-index: -1;
+}
+
+#background_in_card_box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 12;
+  position: absolute;
+  height: 65px;
+  width: 65px;
+  padding: 35px;
+  filter: blur(1000000000000000px);
+  backdrop-filter: blur(6000px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: -1;
+  border-radius: 20px;
+
+}
+
+.background_in_card {
+  --borderWidth: 3px;
+  background: #1D1F20;
+  z-index: -1;
+
+}
+
+.background_in_card:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  border-radius: calc(2 * var(--borderWidth));
+  z-index: -1;
+  -webkit-animation: animatedgradient 3s ease alternate infinite;
+  animation: animatedgradient 3s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+.card {
+  height: 350px;
+  width: 240px;
+  background: none;
+  padding: 35px;
+  color: var(--text-color);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  border: #564DBB solid 1px;
+}
+
+.position_avatar {
+  top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 190px;
+  height: 190px;
+  position: relative;
+}
+
+.avatar {
+  width: 190px;
+  height: 190px;
+  position: relative;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  z-index: 1;
+  border: 1px solid #a166ab;
+}
+
+h1 {
+  position: relative;
+  top: -35px;
+  text-align: center;
+  font-family: 'PT Mono', monospace;
+  font-size: 42px;
+  color: rgb(212, 212, 212);
+}
+
+.tree {
+  width: 48px;
+  top: 4px;
+  position: relative;
+}
+
+.animated_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  top: -70px;
+  ;
+}
+
+.animated_text p {
+  text-align: center;
+  font-size: 1rem;
+  padding: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.animated_text p span.typed-text {
+  font-weight: normal;
+  color: #8d3232;
+}
+
+.animated_text p span.cursor {
+  display: inline-block;
+  vertical-align: middle;
+  width: 2px;
+  height: 18px;
+  background-color: #fff;
+  animation: blink .75s step-end infinite;
+}
+
+.animated_text p span.cursor.typing {
+  animation: none;
+}
+
+.social {
+  position: relative;
+  top: -18%;
+  text-align: center;
+}
+
+.gmail {
+  position: absolute;
+  top: 0%;
+  right: 185px;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgb(35, 91, 216);
+  transition: 0.5s top;
+  background-image: url("./assets/social-icons/mail.svg");
+  background-size: 100%;
+  background-color: rgb(35, 91, 216);
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.gmail:hover,
+.gmail:focus {
+  top: -10%;
+}
+
+.github {
+  width: 48px;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgb(105, 105, 105);
+  transition: 0.5s top;
+  background-image: url("./assets/social-icons/github.svg");
+  background-size: 100%;
+  background-color: rgb(105, 105, 105);
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.github:hover,
+.github:focus {
+  top: -10%;
+}
+
+.telegram {
+  position: absolute;
+  top: 0%;
+  left: 185px;
+  width: 48px;
+  height: 48px;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px #2AABEE;
+  transition: 0.5s top;
+  background-image: url("./assets/social-icons/telegram.svg");
+  background-size: 100%;
+  background-color: #2AABEE;
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.telegram:hover,
+.telegram:focus {
+  top: -10%;
+}
+
+@-webkit-keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes blink {
+
+  from,
+  to {
+    background-color: transparent
+  }
+
+  50% {
+    background-color: #fff;
+  }
+}

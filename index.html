@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>who</title>
+    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+  </head>
+
+  <body>
+    <div class="preloader">
+      <div class="spinner"></div>
+    </div>
+    <div class="telegram_background">
+      <canvas id="telegram_background_in_animated_javascript" class="source_in_telegram_background" data-colors="2E5EA6,21875B,2A5EA5,564DBB" width="50" height="50"></canvas>
+    </div>
+    <canvas id="snow"></canvas>
+    <div id="background_in_card_box" class="background_in_card"></div>
+    <div class="card">
+      <div class="position_avatar"><img class="avatar" src="./assets/avatar-pri/avatar.webp"></div>
+      <h1>who<img class="tree" src="./assets/avatar-pri/tree.webp"></h1>
+      <div class="animated_text">
+        <p>i'm <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+      </div>
+
+      <div class="social">
+
+        <a href="mailto:dark000pl@gmail.com?subject=I came from dentuwu card site!!!"><button class="gmail" href="#">
+          </button>
+        </a>
+
+        <a href="https://github.com/dentuwu"><button class="github">
+          </button>
+        </a>
+
+        <a href="tg://resolve?domain=dentuwu"><button class="telegram">
+          </button>
+        </a>
+
+      </div>
+
+    </div>
+    <script>
+      window.onload = function() {
+        document.body.classList.add('loaded_hiding');
+        window.setTimeout(function() {
+          document.body.classList.add('loaded');
+          document.body.classList.remove('loaded_hiding');
+        }, 500);
+      }
+
+    </script>
+    <script src="./script.js"></script>
+  </body>
+
+</html>
